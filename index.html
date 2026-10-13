@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f4">
+  <title>شارِكنا رأيك</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #26302d;
+      background: #f7f7f4;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 800;
+      background-color: #12364a;
+      background-image: linear-gradient(rgb(247 247 244 / 76%), rgb(247 247 244 / 76%)), url("WhatsApp Image 2026-10-13 at 3.39.49 PM.jpeg");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .card {
+      width: min(100%, 420px);
+      padding: 34px 30px;
+      border: 1px solid #e6e9e4;
+      border-radius: 12px;
+      background-color: #fff;
+      background-image: linear-gradient(rgb(255 255 255 / 84%), rgb(255 255 255 / 84%)), url("WhatsApp Image 2026-10-13 at 3.39.49 PM.jpeg");
+      background-position: center;
+      background-size: cover;
+      box-shadow: 0 16px 45px rgb(38 48 45 / 8%);
+      text-align: center;
+      animation: enter 420ms ease-out both;
+    }
+
+    .branch {
+      margin: 0 auto 22px;
+    }
+
+    .branch-photo {
+      display: block;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .branch-name {
+      margin-top: 7px;
+      color: #26302d;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: #26302d;
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    p {
+      margin: 0;
+      color: #68726d;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin: 24px 0 2px;
+      direction: inherit;
+    }
+
+    .star-btn {
+      display: grid;
+      width: 48px;
+      height: 58px;
+      padding: 0;
+      grid-template-rows: 1fr auto;
+      justify-items: center;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #d79a28;
+      cursor: pointer;
+      font: inherit;
+      font-size: 34px;
+      line-height: 1;
+      transition: background-color 140ms ease, transform 140ms ease;
+    }
+
+    .star-number { color: #68726d; font-size: 13px; font-weight: 800; line-height: 1; }
+    .star-btn:hover { background: #fbf4e6; transform: translateY(-2px); }
+    .star-btn:active { transform: scale(1.12); }
+    .star-btn:focus-visible, input:focus-visible, textarea:focus-visible, .submit-btn:focus-visible {
+      outline: 3px solid #397a68;
+      outline-offset: 3px;
+    }
+
+    form { margin-top: 22px; text-align: start; }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin: 0 0 12px;
+      padding: 12px 13px;
+      border: 1px solid #dce1dc;
+      border-radius: 7px;
+      background: #fff;
+      color: #26302d;
+      font: inherit;
+      font-size: 16px;
+    }
+
+    textarea { min-height: 112px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #89918d; }
+
+    .submit-btn {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 16px;
+      border: 0;
+      border-radius: 7px;
+      background: #26302d;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 16px;
+      font-weight: 800;
+      transition: background-color 140ms ease;
+    }
+
+    .submit-btn:hover { background: #397a68; }
+
+    [hidden] { display: none !important; }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    @media (max-width: 360px) {
+      body { padding: 16px; }
+      .card { padding: 28px 20px; }
+      .star-btn { width: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <figure class="branch">
+      <img id="branch-photo" src="tagamo-branch-photo.jpg" alt="واجهة فرع القاهرة الجديدة" class="branch-photo">
+      <figcaption id="branch-name" class="branch-name">فرع القاهرة الجديدة</figcaption>
+    </figure>
+
+    <section id="rating-step" aria-labelledby="rating-title">
+      <h1 id="rating-title">كيف كانت تجربتك معنا اليوم؟</h1>
+      <p id="rating-copy">يهمنا جداً معرفة رأيك لتطوير خدمتنا باستمرار</p>
+
+      <div id="rating-stars" class="stars" role="group" aria-label="اختر تقييمك من نجمة إلى خمس نجوم">
+        <button class="star-btn" type="button" aria-label="نجمة واحدة" data-rating="1"><span aria-hidden="true">★</span><span class="star-number" aria-hidden="true">1</span></button>
+        <button class="star-btn" type="button" aria-label="نجمتان" data-rating="2"><span aria-hidden="true">★</span><span class="star-number" aria-hidden="true">2</span></button>
+        <button class="star-btn" type="button" aria-label="ثلاث نجوم" data-rating="3"><span aria-hidden="true">★</span><span class="star-number" aria-hidden="true">3</span></button>
+        <button class="star-btn" type="button" aria-label="أربع نجوم" data-rating="4"><span aria-hidden="true">★</span><span class="star-number" aria-hidden="true">4</span></button>
+        <button class="star-btn" type="button" aria-label="خمس نجوم" data-rating="5"><span aria-hidden="true">★</span><span class="star-number" aria-hidden="true">5</span></button>
+      </div>
+    </section>
+
+    <section id="feedback-step" aria-labelledby="feedback-title" hidden>
+      <h1 id="feedback-title" tabindex="-1">شكراً لك على تقييمك!</h1>
+      <p id="feedback-copy">يسعدنا معرفة المزيد عن تجربتك. شاركنا ملاحظاتك ورقم هاتفك ليتواصل معك مدير المكان:</p>
+
+      <form action="https://formspree.io/f/mnpjbwvz" method="POST">
+        <input id="phone-field" type="tel" name="phone" autocomplete="tel" placeholder="رقم الهاتف" aria-label="رقم الهاتف" required>
+        <textarea id="feedback-field" name="feedback" rows="4" placeholder="ما الذي أعجبك في تجربتك، وهل لديك أي اقتراح؟" aria-label="ملاحظاتك واقتراحاتك" required></textarea>
+        <button id="submit-button" type="submit" class="submit-btn">إرسال للإدارة</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const translations = {
+      ar: {
+        pageTitle: "شارِكنا رأيك",
+        branchPhotoAlt: "واجهة فرع القاهرة الجديدة",
+        branchName: "فرع القاهرة الجديدة",
+        ratingTitle: "كيف كانت تجربتك معنا اليوم؟",
+        ratingCopy: "يهمنا جداً معرفة رأيك لتطوير خدمتنا باستمرار",
+        ratingLabel: "اختر تقييمك من نجمة إلى خمس نجوم",
+        starLabels: ["نجمة واحدة", "نجمتان", "ثلاث نجوم", "أربع نجوم", "خمس نجوم"],
+        feedbackTitle: "شكراً لك على تقييمك!",
+        feedbackCopy: "يسعدنا معرفة المزيد عن تجربتك. شاركنا ملاحظاتك ورقم هاتفك ليتواصل معك مدير المكان:",
+        phone: "رقم الهاتف",
+        feedback: "ما الذي أعجبك في تجربتك، وهل لديك أي اقتراح؟",
+        feedbackLabel: "ملاحظاتك واقتراحاتك",
+        submit: "إرسال للإدارة"
+      },
+      en: {
+        pageTitle: "Share your feedback",
+        branchPhotoAlt: "New Cairo branch storefront",
+        branchName: "New Cairo Branch",
+        ratingTitle: "How was your experience with us today?",
+        ratingCopy: "Your feedback helps us continually improve our service.",
+        ratingLabel: "Choose a rating from one to five stars",
+        starLabels: ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"],
+        feedbackTitle: "Thank you for your rating!",
+        feedbackCopy: "We'd love to hear more about your experience. Share your feedback and phone number so our manager can follow up:",
+        phone: "Phone number",
+        feedback: "What did you enjoy, and do you have any suggestions?",
+        feedbackLabel: "Your feedback and suggestions",
+        submit: "Send to management"
+      }
+    };
+
+    const preferredLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    const detectedLanguage = preferredLanguages
+      .map((locale) => locale.toLowerCase())
+      .find((locale) => locale.startsWith("ar") || locale.startsWith("en"));
+    const language = detectedLanguage?.startsWith("ar") ? "ar" : "en";
+    const copy = translations[language];
+
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.title = copy.pageTitle;
+    document.getElementById("branch-photo").alt = copy.branchPhotoAlt;
+    document.getElementById("branch-name").textContent = copy.branchName;
+    document.getElementById("rating-title").textContent = copy.ratingTitle;
+    document.getElementById("rating-copy").textContent = copy.ratingCopy;
+    document.getElementById("rating-stars").setAttribute("aria-label", copy.ratingLabel);
+    document.getElementById("feedback-title").textContent = copy.feedbackTitle;
+    document.getElementById("feedback-copy").textContent = copy.feedbackCopy;
+    document.getElementById("phone-field").placeholder = copy.phone;
+    document.getElementById("phone-field").setAttribute("aria-label", copy.phone);
+    document.getElementById("feedback-field").placeholder = copy.feedback;
+    document.getElementById("feedback-field").setAttribute("aria-label", copy.feedbackLabel);
+    document.getElementById("submit-button").textContent = copy.submit;
+
+    document.querySelectorAll("[data-rating]").forEach((button, index) => {
+      button.setAttribute("aria-label", copy.starLabels[index]);
+    });
+
+    const ratingStep = document.getElementById("rating-step");
+    const feedbackStep = document.getElementById("feedback-step");
+
+    document.querySelectorAll("[data-rating]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const rating = Number(button.dataset.rating);
+
+        if (rating >= 4) {
+          window.location.href = "https://g.page/r/CZsP2bZvVNWOEBM/review";
+          return;
+        }
+
+        ratingStep.hidden = true;
+        feedbackStep.hidden = false;
+        document.getElementById("feedback-title").focus();
+      });
+    });
+  </script>
+</body>
+</html>
